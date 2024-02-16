@@ -8,7 +8,7 @@ namespace Blasphemous.Framework.Items;
 
 public class ItemFramework : BlasMod
 {
-    public ItemFramework() : base(ModInfo.MOD_ID, ModInfo.MOD_NAME, ModInfo.MOD_AUTHOR, ModInfo.MOD_VERSION) { }
+    internal ItemFramework() : base(ModInfo.MOD_ID, ModInfo.MOD_NAME, ModInfo.MOD_AUTHOR, ModInfo.MOD_VERSION) { }
 
     protected override void OnAllInitialized()
     {

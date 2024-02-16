@@ -10,7 +10,7 @@ namespace Blasphemous.Framework.Items;
 
 // Initialize any custom items
 [HarmonyPatch(typeof(InventoryManager), "InitializeObjects")]
-internal class InventoryInitialize_Patch
+class InventoryInitialize_Patch
 {
     public static void Postfix(InventoryManager __instance, GameObject ___mainObject,
         Dictionary<string, RosaryBead> ___allBeads,
@@ -58,7 +58,7 @@ internal class InventoryInitialize_Patch
 
 // Add extra slots to inventory tabs based on how many custom items
 [HarmonyPatch(typeof(NewInventory_LayoutGrid), "ShowMaxSlotsForCurrentTabType")]
-internal class InventoryLayout_Patch
+class InventoryLayout_Patch
 {
     public static void Postfix(List<NewInventory_GridItem> ___cachedGridElements, InventoryManager.ItemType ___currentItemType)
     {
@@ -74,7 +74,7 @@ internal class InventoryLayout_Patch
 
 // Fix navigation errors on inventory screen
 [HarmonyPatch(typeof(NewInventory_LayoutGrid), "LinkLastSlotToLastRowFirstSlot")]
-internal class InventoryLayoutNav_Patch
+class InventoryLayoutNav_Patch
 {
     public static bool Prefix(List<NewInventory_GridItem> ___cachedGridElements, InventoryManager.ItemType ___currentItemType)
     {
@@ -98,7 +98,7 @@ internal class InventoryLayoutNav_Patch
 
 // Prevent incorrect errors for object effect types
 [HarmonyPatch(typeof(ObjectEffect), "ShowError")]
-internal class ObjectEffectError_Patch
+class ObjectEffectError_Patch
 {
     public static bool Prefix() => false;
 }
