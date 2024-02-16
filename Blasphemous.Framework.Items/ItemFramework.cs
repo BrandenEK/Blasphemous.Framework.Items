@@ -6,22 +6,34 @@ using UnityEngine;
 
 namespace Blasphemous.Framework.Items;
 
+/// <summary>
+/// Handles adding custom items
+/// </summary>
 public class ItemFramework : BlasMod
 {
     internal ItemFramework() : base(ModInfo.MOD_ID, ModInfo.MOD_NAME, ModInfo.MOD_AUTHOR, ModInfo.MOD_VERSION) { }
 
+    /// <summary>
+    /// Once all items are registered, count how many of each type
+    /// </summary>
     protected override void OnAllInitialized()
     {
         foreach (var item in ItemRegister.Items.Where(i => i.AddInventorySlot))
             AddItemCount(item);
     }
 
+    /// <summary>
+    /// When a new game is started, grant all carry on start items
+    /// </summary>
     protected override void OnNewGame()
     {
         foreach (var item in ItemRegister.Items.Where(i => i.CarryOnStart))
             item.GiveItem();
     }
 
+    /// <summary>
+    /// Increments the count for a type of item
+    /// </summary>
     private void AddItemCount(ModItem item)
     {
         switch (item.ItemType)
@@ -47,7 +59,10 @@ public class ItemFramework : BlasMod
         }
     }
 
-    public Vector2 GetItemCountOfType(InventoryManager.ItemType itemType)
+    /// <summary>
+    /// Checks how many normal items and how many total items
+    /// </summary>
+    internal Vector2 GetItemCountOfType(InventoryManager.ItemType itemType)
     {
         return itemCountsByType.TryGetValue(itemType, out Vector2 amount) ? amount : new Vector2();
     }
