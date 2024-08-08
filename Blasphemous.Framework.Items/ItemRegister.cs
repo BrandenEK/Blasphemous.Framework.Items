@@ -20,6 +20,6 @@ public static class ItemRegister
             return;
 
         _items.Add(item);
-        Main.ItemFramework.Log($"Registered custom item: {item.Id}");
+        ModLog.Info($"Registered custom item: {item.Id}");
     }
 }

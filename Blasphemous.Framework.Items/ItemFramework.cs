@@ -51,7 +51,7 @@ public class ItemFramework : BlasMod
                 itemCountsByType[InventoryManager.ItemType.Sword] = new Vector2(11, itemCountsByType[InventoryManager.ItemType.Sword].y + 1);
                 return;
             case ModItem.ModItemType.QuestItem:
-                Main.ItemFramework.LogWarning("Can not add an inventory slot for quest items!");
+                ModLog.Warn("Can not add an inventory slot for quest items!");
                 return;
             case ModItem.ModItemType.Collectible:
                 itemCountsByType[InventoryManager.ItemType.Collectible] = new Vector2(44, itemCountsByType[InventoryManager.ItemType.Collectible].y + 1);

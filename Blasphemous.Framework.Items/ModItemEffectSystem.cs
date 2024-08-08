@@ -15,17 +15,17 @@ internal class ModItemEffectSystem : ObjectEffect
         modEffect.Initialize();
     }
 
-    protected override void OnUpdate()
+    public override void OnUpdate()
     {
         modEffect.Update();
     }
 
-    protected override void OnDispose()
+    public override void OnDispose()
     {
         modEffect.Dispose();
     }
 
-    protected override bool OnApplyEffect()
+    public override bool OnApplyEffect()
     {
         if (effectType == EffectType.OnAdquisition)
         {
@@ -40,7 +40,7 @@ internal class ModItemEffectSystem : ObjectEffect
         return true;
     }
 
-    protected override void OnRemoveEffect()
+    public override void OnRemoveEffect()
     {
         modEffect.RemoveEffect();
     }
