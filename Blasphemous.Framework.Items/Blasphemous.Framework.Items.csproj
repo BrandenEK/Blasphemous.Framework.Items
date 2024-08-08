@@ -9,7 +9,7 @@
     <Authors>Damocles</Authors>
     <Company>Damocles</Company>
     <Description>Framework that allows other mods to implement custom items</Description>
-    <Version>0.1.0</Version>
+    <Version>0.1.1</Version>
 
     <TargetName>ItemFramework</TargetName>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
