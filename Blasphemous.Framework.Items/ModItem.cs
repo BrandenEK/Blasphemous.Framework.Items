@@ -1,4 +1,5 @@
-﻿using Framework.Inventory;
+﻿using Blasphemous.ModdingAPI;
+using Framework.Inventory;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -82,7 +83,7 @@ public abstract class ModItem
         if ((effect.ValidItemTypes & ItemType) > 0)
             Effects.Add(effect);
         else
-            Main.ItemFramework.LogWarning($"Can not add effect '{effect.GetType().Name}' to an item of type {ItemType}!");
+            ModLog.Warn($"Can not add effect '{effect.GetType().Name}' to an item of type {ItemType}!");
 
         return this;
     }
