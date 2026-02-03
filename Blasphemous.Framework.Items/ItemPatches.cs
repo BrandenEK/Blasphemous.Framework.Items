@@ -8,9 +8,11 @@ using UnityEngine.UI;
 
 namespace Blasphemous.Framework.Items;
 
-// Initialize any custom items
+/// <summary>
+/// Initialize any custom items
+/// </summary>
 [HarmonyPatch(typeof(InventoryManager), nameof(InventoryManager.InitializeObjects))]
-class InventoryInitialize_Patch
+class InventoryManager_InitializeObjects_Patch
 {
     public static void Postfix(InventoryManager __instance, GameObject ___mainObject,
         Dictionary<string, RosaryBead> ___allBeads,
@@ -56,9 +58,11 @@ class InventoryInitialize_Patch
     }
 }
 
-// Add extra slots to inventory tabs based on how many custom items
+/// <summary>
+/// Add extra slots to inventory tabs based on how many custom items
+/// </summary>
 [HarmonyPatch(typeof(NewInventory_LayoutGrid), nameof(NewInventory_LayoutGrid.ShowMaxSlotsForCurrentTabType))]
-class InventoryLayout_Patch
+class NewInventory_LayoutGrid_ShowMaxSlotsForCurrentTabType_Patch
 {
     public static void Postfix(List<NewInventory_GridItem> ___cachedGridElements, InventoryManager.ItemType ___currentItemType)
     {
@@ -73,9 +77,11 @@ class InventoryLayout_Patch
     }
 }
 
-// Fix navigation errors on inventory screen
+/// <summary>
+/// Fix navigation errors on inventory screen
+/// </summary>
 [HarmonyPatch(typeof(NewInventory_LayoutGrid), nameof(NewInventory_LayoutGrid.LinkLastSlotToLastRowFirstSlot))]
-class InventoryLayoutNav_Patch
+class NewInventory_LayoutGrid_LinkLastSlotToLastRowFirstSlot_Patch
 {
     public static bool Prefix(List<NewInventory_GridItem> ___cachedGridElements, InventoryManager.ItemType ___currentItemType)
     {
@@ -98,9 +104,11 @@ class InventoryLayoutNav_Patch
     }
 }
 
-// Prevent incorrect errors for object effect types
+/// <summary>
+/// Prevent incorrect errors for object effect types
+/// </summary>
 [HarmonyPatch(typeof(ObjectEffect), nameof(ObjectEffect.ShowError))]
-class ObjectEffectError_Patch
+class ObjectEffect_ShowError_Patch
 {
     public static bool Prefix() => false;
 }
